@@ -3,7 +3,7 @@ import { pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core"
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import * as zod from "zod";
 import { todos } from "@/drizzle/schema";
-import { TodosSchema } from "@/drizzle/schema/todos";
+import { TTodo } from "@/drizzle/schema/todos";
 
 export const categories = pgTable("categories", {
 	id: serial("id").primaryKey().notNull().unique(),
@@ -25,13 +25,10 @@ export const NewCategorySchema = createInsertSchema(categories).pick({
 	description: true,
 });
 
-export const CategorySchemaWithPosts = zod.object({
-	id: CategorySchema.shape.id,
-	name: CategorySchema.shape.name,
-	description: CategorySchema.shape.description,
-	todos: zod.array(TodosSchema),
-});
+type TTodosArray = {
+	todos: TTodo[];
+};
 
 export type TCategory = zod.infer<typeof CategorySchema>;
-export type TCategoryWithPosts = zod.infer<typeof CategorySchemaWithPosts>;
+export type TCategoryWithTodos = TCategory & TTodosArray;
 export type TNewCategory = zod.infer<typeof NewCategorySchema>;

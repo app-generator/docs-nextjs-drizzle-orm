@@ -21,12 +21,13 @@ export const todosRelations = relations(todos, ({ one }) => ({
 	}),
 }));
 
-export const TodosSchema = createSelectSchema(todos);
-export const Newtodoschema = createInsertSchema(todos).pick({
+export const TodoSchema = createSelectSchema(todos);
+export const TodosListSchema = zod.array(TodoSchema);
+export const NewTodoSchema = createInsertSchema(todos).pick({
 	title: true,
 	description: true,
 	categoryId: true,
 });
 
-export type TPost = zod.infer<typeof TodosSchema>;
-export type TNewPost = zod.infer<typeof Newtodoschema>;
+export type TTodo = zod.infer<typeof TodoSchema>;
+export type TNewTodo = zod.infer<typeof NewTodoSchema>;
