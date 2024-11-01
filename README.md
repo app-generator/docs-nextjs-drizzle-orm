@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nextjs With Drizzle ORM
 
-## Getting Started
 
-First, run the development server:
+## Spin Up a Local Postgres Instance
+
+First, have PostgreSQL installed locally and start a running database instance named `drizzle_nextjs` using either `psql` or [pgAdmin](https://www.pgadmin.org/docs/). Please refer to this [Youtube tutorial](https://www.youtube.com/watch?v=KuQUNHCeKCk) if you need a fresher.
+
+
+### PostgreSQL Credentials
+
+Have the credentials of your Postgres instance ready, in a `.env` file stored at the root. It should follow this format:
+
+```bash
+DB_HOST=localhost
+DB_PORT_NO=5432
+DB_USERNAME=postgres
+DB_PASSWORD="YOUR_PASSWORD"
+DB_NAME=drizzle_nextjs
+DB_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT/${DB_NAME}
+```
+
+## Application Setup
+
+1. Clone this repo from [here](https://github.com/app-generator/docs-nextjs-drizzle-orm).
+2. `cd` in and Install dependencies:
+
+```bash
+npm i
+```
+
+3. Generate Drizzle migration files:
+
+```bash
+npm run db:generate
+```
+
+4. Run database migrations:
+
+```bash
+npm run db:migrate
+```
+
+5. Seed database:
+
+```bash
+npm run db:seed
+```
+
+6. Run the Next.js server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Visit `http://localhost:3000/`. The app should be running.
