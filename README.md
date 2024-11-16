@@ -1,10 +1,14 @@
-# Nextjs With Drizzle ORM
+# [Nextjs With Drizzle ORM](https://app-generator.dev/docs/technologies/nextjs/drizzle-orm.html)
 
+This quick guide demonstrates the use of Drizzle with server components in Next.js. We breeze past the initial steps for spinning up a local PostgreSQL server and starting a Next.js app.
+
+> 👉 [How to use Drizzle with server components in Next.js.](https://app-generator.dev/docs/technologies/nextjs/drizzle-orm.html) - Complete Documentation
+
+<br />
 
 ## Spin Up a Local Postgres Instance
 
-First, have PostgreSQL installed locally and start a running database instance named `drizzle_nextjs` using either `psql` or [pgAdmin](https://www.pgadmin.org/docs/). Please refer to this [Youtube tutorial](https://www.youtube.com/watch?v=KuQUNHCeKCk) if you need a fresher.
-
+First, install PostgreSQL locally and start a running database instance named `drizzle_nextjs` using either `psql` or [pgAdmin](https://www.pgadmin.org/docs/). If you need a refresher, please refer to this [YouTube tutorial](https://www.youtube.com/watch?v=KuQUNHCeKCk).
 
 ### PostgreSQL Credentials
 
@@ -53,3 +57,6 @@ npm run dev
 ```
 
 Visit `http://localhost:3000/`. The app should be running.
+
+---
+[Nextjs With Drizzle ORM](https://app-generator.dev/docs/technologies/nextjs/drizzle-orm.html) -  Free sample provided by [App Generator](https://app-generator.dev)
